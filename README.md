@@ -2,10 +2,6 @@
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
   - 项目基于Flask框架
   - 项目基于subconverter：https://github.com/tindy2013/subconverter
-  - 配置文件版示例： https://github.com/lzdnico/subconverteriniexample
-  - 项目示例站点： https://subweb.niconewbeee.tk
-  - 托管地址生成页面示意图
-  ![image](https://github.com/lzdnico/subweb/blob/test/images/index.png) 
 # 环境搭建及运行
   - 1.安装python3 依赖： 
   ```bash
@@ -36,12 +32,12 @@
 # Docker 运行 By NicoNewBeee 自定义修改版
   - 1.安装Docker运行环境： 
   ```bash
-  docker pull niconewbeee/subweb:basic
+  docker pull javbus/subweb
   ```
   - 2.下载源码：
   ```bash
   cd 
-  git clone https://github.com/lzdnico/subweb.git 
+  git clone https://github.com/cjiasu/subweb.git
   ```
   - 3.客制化（必须修改）：
   ```bash 
@@ -58,20 +54,20 @@
   - 5.开始运行：
   -p 前端端口号：10086 -p 后端端口号：10010                      这个前/后端端口号需要与api/aff.py中的一致
   ```bash 
-  docker run  -d --name=subweb --restart=always -v /root/subweb:/subweb -p 10086:10086 -p 10010:10010  niconewbeee/subweb:basic
+  docker run  -d --name=subweb --restart=always -v /root/subweb:/subweb -p 10086:10086 -p 10010:10010  javbus/subweb
   ```
   - 6.太复杂？：
   看看subweb/docker 文件下的update.sh 可以一键更新最新代码，并一键覆盖自定义修改内容。
 # Docker 运行 By NicoNewBeee （停止更新）
 - 1.拉取镜像： 
 ```bash
-docker pull niconewbeee/subweb:latest
+docker pull javbus/subweb
 ```
 - 2.运行docker 
 WEB_HOST、CORE_HOST：参数修改为服务器的ip以及端口号，或者是域名搭配反代
 -p 参数：WEB_HOST的端口Web_Port映射到10086，CORE_HOST的端口Core_Port映射到10010
 ```bash
-docker run -d --restart=always --name=subweb -e WEB_HOST=http://serverip:Web_Port -e CORE_HOST=http://serverip:Core_Port -p Web_Port:10086 -p Core_Port:10010 niconewbeee/subweb
+docker run -d --restart=always --name=subweb -e WEB_HOST=http://serverip:Web_Port -e CORE_HOST=http://serverip:Core_Port -p Web_Port:10086 -p Core_Port:10010 javbus/subweb
 ```
 - 3.查看日志 
 ```bash
@@ -89,36 +85,11 @@ docker restart subweb
 ```bash
 docker rm -f subweb
 ```
-# Docker 运行 By du5 (旧版)
-> https://docker.io/gtary/subweb build by [@du5](https://t.me/Gtary)
-1. 拉取镜像
-```bash
-docker pull gtary/subweb
-```
-2. 运行 
-```bash
-docker run -d --restart=always --name=subweb -e WEB_HOST=http://127.0.0.1:Web_Port -e CORE_HOST=http://127.0.0.1:Core_Port -p Web_Port:10086 -p Core_Port:10010 gtary/subweb
-```
-3. 停止
-```bash
-docker stop subweb
-```
-4. 重启
-```bash
-docker restart subweb
-```
-4. 删除
-```bash
-docker rm -f subweb
-```
 5. 查看日志
 ```bash
 docker exec subweb tail /var/log/core.log -f
 docker exec subweb tail /var/log/web.log -f
 ```
-# 联系我
-  - 更新频道：https://t.me/niconewbeeeapi
-  - 打赏地址:https://t.me/niconewbeeeapi/134
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
